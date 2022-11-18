@@ -4,9 +4,12 @@ import Main from '.'
 
 describe('<Main/>',() => {
   it('should render the heading',() => {
-    render (<main />)
+    const {container} = render (<Main />)
+    screen.logTestingPlaygroundURL()
 
     expect(screen.getByRole('heading', { name: /react avancado/i})
     ).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   });
 });
